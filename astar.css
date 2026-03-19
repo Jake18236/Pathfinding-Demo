@@ -342,6 +342,12 @@
     border-color: var(--astar-wall-border);
 }
 
+.grid-cell.wall::after {
+    content: '\2588';
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .grid-cell.open {
     background-color: var(--astar-open-bg);
     border-color: var(--astar-open-border);

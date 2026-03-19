@@ -2896,6 +2896,10 @@
                     display.textContent = `Step: ${index + 1} / ${total}`;
                 }
             },
+            onFinished: () => {
+                // Re-enable solve button when playback completes
+                document.getElementById('btn-solve').disabled = false;
+            },
             onReset: () => {
                 ui.clearHeuristicLine();
                 ui.clearPseudocode();
@@ -3141,6 +3145,12 @@
             document.querySelectorAll('.grid-controls').forEach(el => el.style.display = '');
             document.querySelectorAll('.graph-controls').forEach(el => el.style.display = 'none');
 
+            // Reset button states for grid mode
+            document.getElementById('btn-solve').disabled = false;
+            document.getElementById('btn-pause').disabled = true;
+            document.getElementById('btn-step').disabled = true;
+            document.getElementById('btn-step-back').disabled = true;
+
             // Reset graph playback
             this.graphPlayback.reset();
         }
@@ -3158,6 +3168,12 @@
             document.querySelectorAll('.grid-controls').forEach(el => el.style.display = 'none');
             document.querySelectorAll('.graph-controls').forEach(el => el.style.display = '');
 
+            // Reset button states for graph mode
+            document.getElementById('btn-solve').disabled = false;
+            document.getElementById('btn-pause').disabled = true;
+            document.getElementById('btn-step').disabled = true;
+            document.getElementById('btn-step-back').disabled = true;
+
             // Reset grid playback
             this.playback.reset();
         }
@@ -3170,7 +3186,8 @@
             this.graphUI.updateMetrics({});
             this.graphUI.updateLists([], []);
 
-            // Disable controls
+            // Re-enable solve button, disable playback controls
+            document.getElementById('btn-solve').disabled = false;
             document.getElementById('btn-pause').disabled = true;
             document.getElementById('btn-pause').innerHTML = '<i class="fa fa-pause"></i>';
             document.getElementById('btn-step').disabled = true;
@@ -3216,7 +3233,8 @@
             }
             this.playback.loadSteps(this.currentResult.steps, this.grid.goal);
 
-            // Enable controls
+            // Disable solve button, enable playback controls
+            document.getElementById('btn-solve').disabled = true;
             document.getElementById('btn-pause').disabled = false;
             document.getElementById('btn-step').disabled = false;
             document.getElementById('btn-step-back').disabled = false;
@@ -3251,7 +3269,8 @@
             }
             this.graphPlayback.loadSteps(this.currentResult.steps, this.graphState.goal);
 
-            // Enable controls
+            // Disable solve button, enable playback controls
+            document.getElementById('btn-solve').disabled = true;
             document.getElementById('btn-pause').disabled = false;
             document.getElementById('btn-step').disabled = false;
             document.getElementById('btn-step-back').disabled = false;
@@ -3279,7 +3298,8 @@
             this.ui.updateLists([], []);
             this.ui.clearLog();
 
-            // Disable controls
+            // Re-enable solve button, disable playback controls
+            document.getElementById('btn-solve').disabled = false;
             document.getElementById('btn-pause').disabled = true;
             document.getElementById('btn-pause').innerHTML = '<i class="fa fa-pause"></i>';
             document.getElementById('btn-step').disabled = true;

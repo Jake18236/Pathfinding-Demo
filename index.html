@@ -10,22 +10,15 @@
 
 	<title>A* Pathfinding Visualizer | Exploring Artificial Intelligence</title>
 
-	<link rel="canonical" href="https://ai.williamtheisen.com/astar.html">
+	<link rel="canonical" href="astar.html">
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="A* Pathfinding Visualizer | Exploring Artificial Intelligence">
 	<meta property="og:description" content="Visualize the A* search algorithm finding optimal paths through grids. Compare heuristics like Manhattan, Euclidean, and Dijkstra.">
-	<meta property="og:url" content="https://ai.williamtheisen.com/astar.html">
+	<meta property="og:url" content="astar.html">
 	<meta property="og:image" content="https://ai.williamtheisen.com/static/img/og-default.png">
 	<meta property="og:site_name" content="Exploring Artificial Intelligence">
-
-	<!-- Twitter Card -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="A* Pathfinding Visualizer | Exploring Artificial Intelligence">
-	<meta name="twitter:description" content="Visualize the A* search algorithm finding optimal paths through grids. Compare heuristics like Manhattan, Euclidean, and Dijkstra.">
-	<meta name="twitter:image" content="https://ai.williamtheisen.com/static/img/og-default.png">
-
 	<!-- JSON-LD Structured Data -->
 	
 	<script type="application/ld+json">
@@ -52,12 +45,10 @@
 	
 
 	<!-- Theme CSS (toggleable) -->
-	<link id="theme-style" href="static/css/bluegold.css" rel="stylesheet">
+	<link id="theme-style" href="bluegold.css" rel="stylesheet">
 	
 	<!-- Shared visualization styles -->
-	<link rel="stylesheet" href="static/css/visualizations.css">
-	
-	<script src="https://kit.fontawesome.com/9d2722956c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="visualizations.css">
 
 	<style>
 	body {
@@ -779,7 +770,7 @@
 
 
 
-<link rel="stylesheet" href="static/css/astar.css">
+<link rel="stylesheet" href="astar.css">
 
 <!-- Main Content: Grid (left) + Info Tabs (right) -->
 <div class="row" id="main-content">
@@ -1345,15 +1336,15 @@
 	
 	<script type="module">
 		// Load shared modules and expose them globally for IIFE-based visualizations
-		import { PlaybackController } from './static/js/lib/playback-controller.js';
-		import { ThemeManager } from './static/js/lib/theme-manager.js';
-		import { Quadtree } from './static/js/lib/quadtree.js';
-		import { setupHiDPICanvas, resetCanvasTransform, clearCanvas, roundRect, drawLine, drawCircle, getMousePosition, createOffscreenCanvas, CoordinateMapper, hexToRgb, colorLerp } from './static/js/lib/canvas-utils.js';
-		import { TreeLayoutEngine } from './static/js/lib/tree-layout.js';
-		import { normalize, clamp, euclideanDistance, manhattanDistance, chebyshevDistance, gaussian, lerp, remapRange } from './static/js/lib/math-utils.js';
-		import { DatasetGenerators } from './static/js/lib/dataset-generators.js';
-		import { URLStateManager } from './static/js/lib/url-state-manager.js';
-		import { setTextContent, wireStepper, wireSlider } from './static/js/lib/dom-utils.js';
+		import { PlaybackController } from 'playback-controller.js';
+		import { ThemeManager } from 'theme-manager.js';
+		import { Quadtree } from 'quadtree.js';
+		import { setupHiDPICanvas, resetCanvasTransform, clearCanvas, roundRect, drawLine, drawCircle, getMousePosition, createOffscreenCanvas, CoordinateMapper, hexToRgb, colorLerp } from 'canvas-utils.js';
+		import { TreeLayoutEngine } from 'tree-layout.js';
+		import { normalize, clamp, euclideanDistance, manhattanDistance, chebyshevDistance, gaussian, lerp, remapRange } from 'math-utils.js';
+		import { DatasetGenerators } from 'dataset-generators.js';
+		import { URLStateManager } from 'url-state-manager.js';
+		import { setTextContent, wireStepper, wireSlider } from 'dom-utils.js';
 
 		window.VizLib = {
 			PlaybackController,
@@ -1380,7 +1371,7 @@
 		// Signal that VizLib is ready
 		window.dispatchEvent(new CustomEvent('vizlib-ready'));
 	</script>
-	<script src="static/js/astar.js"></script>
+	<script src="astar.js"></script>
 	<script type="module">
 		// Auto-initialize URL state management for visualizations
 		window.addEventListener('vizlib-ready', function() {
@@ -1402,7 +1393,7 @@
 	    var prefix = '';
 	    var themes = {
 	        'gruvbox-dark': prefix + 'static/css/gruvbox-dark.css',
-	        'bluegold': prefix + 'static/css/bluegold.css'
+	        'bluegold': prefix + 'bluegold.css'
 	    };
 	    var linkEl = document.getElementById('theme-style');
 	    var toggleBtn = document.getElementById('theme-toggle');
